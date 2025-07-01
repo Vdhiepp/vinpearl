@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Vinpearl Beachfront Nha Trang</title>
+  <link rel="icon" type="image/png" href="/image/logo.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="/image/banner.jpg" alt="Banner" class="banner">
+    <h2>Vinpearl Beachfront Nha Trang - FO</h2>
+
+    <label>Mã sản phẩm:</label>
+    <input type="text" id="codeInput" placeholder="VD: PR33003BVD12">
+
+    <label>Giá RM (VND):</label>
+    <input type="text" id="rmInput" placeholder="VD: 2784000">
+
+    <label>Số lượng SC:</label>
+    <div class="qty-controls">
+      <button onclick="changeQty('sc', -1)">-</button>
+      <span id="scQty">0</span>
+      <button onclick="changeQty('sc', 1)">+</button>
+    </div>
+
+    <label>Số lượng EBA:</label>
+    <div class="qty-controls">
+      <button onclick="changeQty('eba', -1)">-</button>
+      <span id="ebaQty">0</span>
+      <button onclick="changeQty('eba', 1)">+</button>
+    </div>
+
+    <div class="btn-wrap">
+      <button onclick="generateResult()">Tra cứu</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
