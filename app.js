@@ -21,7 +21,7 @@ function changeQty(type, delta) {
 function generateResult() {
   const code = document.getElementById('codeInput').value.trim().toUpperCase();
   const rmRaw = document.getElementById('rmInput').value.trim();
-  const rm = rmRaw.replaceAll(',', '').replaceAll('.', ''); // hỗ trợ dấu , và .
+  const rm = rmRaw.replaceAll(',', '').replaceAll('.', '');
   const sc = scCount;
   const eba = ebaCount;
   const hasDO = code.includes("DO") || code.includes("D12");
@@ -64,10 +64,19 @@ function generateResult() {
     result += ` to TA b4 C/I\nXtra to POA`;
   }
 
+  // 6. Tổng tiền nếu có SC hoặc EBA
+  let total = Number(rm);
+  if (sc > 0) total += sc * getSCPriceRaw(code, hasDO);
+  if (eba > 0) total += eba * getEBAPriceRaw(code, hasDO);
+
+  if (sc > 0 || eba > 0) {
+    result += `\n\nTổng: ${formatVND(total)} VND`;
+  }
+
   document.getElementById("result").innerText = result;
 }
 
-// Trả về giá SC đúng với mã và tình trạng có DO hay không
+// Trả về chuỗi giá SC
 function getSCPrice(code, hasDO) {
   if (hasDO) {
     if (code.includes("BV") && code.includes("PR")) return "904,000 VND TE/N";
@@ -81,7 +90,7 @@ function getSCPrice(code, hasDO) {
   return "SC ???";
 }
 
-// Trả về giá EBA đúng với mã và tình trạng có DO hay không
+// Trả về chuỗi giá EBA
 function getEBAPrice(code, hasDO) {
   if (hasDO) {
     if (code.includes("BV") && code.includes("PR")) return "1,776,000 VND NL/N";
@@ -93,4 +102,32 @@ function getEBAPrice(code, hasDO) {
     if (code.includes("BB")) return "1,302,600 VND NL/N";
   }
   return "EBA ???";
+}
+
+// Trả về số giá SC để tính tổng tiền
+function getSCPriceRaw(code, hasDO) {
+  if (hasDO) {
+    if (code.includes("BV") && code.includes("PR")) return 904000;
+    if (code.includes("BV") && code.includes("BA")) return 1056000;
+    if (code.includes("BB")) return 376000;
+  } else {
+    if (code.includes("BV") && code.includes("PR")) return 943550;
+    if (code.includes("BV") && code.includes("BA")) return 1102200;
+    if (code.includes("BB")) return 392450;
+  }
+  return 0;
+}
+
+// Trả về số giá EBA để tính tổng tiền
+function getEBAPriceRaw(code, hasDO) {
+  if (hasDO) {
+    if (code.includes("BV") && code.includes("PR")) return 1776000;
+    if (code.includes("BV") && code.includes("BA")) return 1928000;
+    if (code.includes("BB")) return 1248000;
+  } else {
+    if (code.includes("BV") && code.includes("PR")) return 0;
+    if (code.includes("BV") && code.includes("BA")) return 0;
+    if (code.includes("BB")) return 1302600;
+  }
+  return 0;
 }
