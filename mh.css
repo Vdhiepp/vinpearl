@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  transform: scale(1.5);  /* Phóng to */
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 6px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+textarea {
+  height:500px;
+  resize: vertical;
+  background: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13pt;
+}
+
+textarea .highlight {
+  font-weight: bold;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  margin-right: 40px; /* <-- thêm dòng này để giãn từng khối */
+}
+
+.counter button {
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.counter button:hover {
+  background-color: #0056b3;
+}
+
+.counter span {
+  min-width: 30px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  column-gap: 40px;  /* Tăng khoảng cách ngang */
+}
+
+.generate-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.generate-btn:hover {
+  background-color: #1e7e34;
+}
+
+.hidden {
+  display: none;
+}

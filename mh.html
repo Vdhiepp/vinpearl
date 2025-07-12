@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>MH - Korean</title>
+    <link rel="icon" type="image/png" href="/image/logo.jpg">
+    <link rel="stylesheet" href="mh.css">
+    <script src="mh.js"></script>
+</head>
+<body>
+    <h2>MH - Korean</h2>
+
+    <label>Số booking:</label>
+    <input type="text" id="bookingId">
+
+    <label>Tiền phòng (VND):</label>
+    <input type="number" id="roomPrice" min="0">
+
+    <div class="row">
+        <label>Số phòng:</label>
+        <div class="counter">
+            <button onclick="changeValue('roomQty', -1)">-</button>
+            <span id="roomQty">1</span>
+            <button onclick="changeValue('roomQty', 1)">+</button>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <label>SC:</label>
+        <div class="counter">
+            <button onclick="changeValue('scQty', -1)">-</button>
+            <span id="scQty">0</span>
+            <button onclick="changeValue('scQty', 1)">+</button>
+        </div>
+
+        <label>EBC:</label>
+        <div class="counter">
+            <button onclick="changeValue('ebcQty', -1)">-</button>
+            <span id="ebcQty">0</span>
+            <button onclick="changeValue('ebcQty', 1)">+</button>
+        </div>
+
+        <label>EBA:</label>
+        <div class="counter">
+            <button onclick="changeValue('ebaQty', -1)">-</button>
+            <span id="ebaQty">0</span>
+            <button onclick="changeValue('ebaQty', 1)">+</button>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <label>Early Check In:</label>
+        <div class="counter">
+            <button onclick="changeValue('earlyQty', -1)">-</button>
+            <span id="earlyQty">0</span>
+            <button onclick="changeValue('earlyQty', 1)">+</button>
+        </div>
+
+        <label>Late Check Out:</label>
+        <div class="counter">
+            <button onclick="changeValue('lateQty', -1)">-</button>
+            <span id="lateQty">0</span>
+            <button onclick="changeValue('lateQty', 1)">+</button>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <label>FREE Upgrade:</label>
+        <label><input type="checkbox" id="upgradeTwin"> Twin Studio Ocean View</label>
+        <label><input type="checkbox" id="upgradeKing"> King Studio Ocean View</label>
+    </div>
+
+    <div class="row">
+        <label>Đổi phòng:</label>
+        <label><input type="checkbox" id="changeTwin"> Twin Studio City View</label>
+        <label><input type="checkbox" id="changeKing"> King Studio City View</label>
+    </div>
+
+    <br>
+    <label><input type="checkbox" id="lunchToggle"> Bữa trưa</label>
+    <div id="lunchOptions" class="hidden">
+        <label>Ngày bữa trưa (ví dụ: 08JUL hoặc 08 AUG):</label>
+        <input type="text" id="lunchDate">
+
+        <div class="row">
+            <label>Trẻ em:</label>
+            <div class="counter">
+                <button onclick="changeValue('childQty', -1)">-</button>
+                <span id="childQty">0</span>
+                <button onclick="changeValue('childQty', 1)">+</button>
+            </div>
+
+            <label>Người lớn:</label>
+            <div class="counter">
+                <button onclick="changeValue('adultQty', -1)">-</button>
+                <span id="adultQty">0</span>
+                <button onclick="changeValue('adultQty', 1)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <button class="generate-btn" onclick="generateMessage()">Create</button>
+
+    <h3>Kết quả:</h3>
+    <textarea id="resultText" readonly></textarea>
+
+</body>
+</html>
