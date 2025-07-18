@@ -5,7 +5,7 @@
     <title>MH - Korean</title>
     <link rel="icon" type="image/png" href="/image/logo.jpg">
     <link rel="stylesheet" href="mh.css">
-    <script src="mh.js"></script>
+
 </head>
 <body>
     <h2>MH</h2>
@@ -22,6 +22,15 @@
             <button onclick="changeValue('roomQty', -1)">-</button>
             <span id="roomQty">1</span>
             <button onclick="changeValue('roomQty', 1)">+</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <label>Số ngày:</label>
+        <div class="counter">
+            <button onclick="changeValue('dayQty', -1)">-</button>
+            <span id="dayQty">1</span>
+            <button onclick="changeValue('dayQty', 1)">+</button>
         </div>
     </div>
 
@@ -108,5 +117,6 @@
     <h3>Kết quả:</h3>
     <textarea id="resultText" readonly></textarea>
 
+    <script src="mh.js"></script>
 </body>
 </html>

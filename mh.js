@@ -30,6 +30,7 @@ function generateMessage() {
   const upgradeKing = document.getElementById("upgradeKing").checked;
   const changeTwin = document.getElementById("changeTwin").checked;
   const changeKing = document.getElementById("changeKing").checked;
+  const dayQty = parseInt(document.getElementById("dayQty").textContent) || 1;
 
   let result = "";
 
@@ -54,10 +55,10 @@ function generateMessage() {
     extra.push(lunchLine);
   }
 
-  let totalVND = priceVND * roomQty;
-  totalVND += Math.floor(priceVND / 2) * (lateQty + earlyQty);
-  totalVND += 175000 * childQty + 350000 * adultQty;
-  totalVND += 200000 * ebcQty + 975000 * ebaQty;
+  let totalVND = priceVND * roomQty * dayQty;
+  totalVND += Math.floor(priceVND / 2) * (lateQty + earlyQty) * dayQty;
+  totalVND += (175000 * childQty + 350000 * adultQty);
+  totalVND += (200000 * ebcQty + 975000 * ebaQty) * dayQty;
 
   const totalUSD = (totalVND / 25000).toFixed(2);
   const totalUSDStr = totalUSD.endsWith(".00") ? parseInt(totalUSD) : totalUSD;
