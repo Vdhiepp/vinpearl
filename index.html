@@ -15,11 +15,31 @@
         <button type="button">Chuyển sang MH</button>
       </a>
     </div>
+
+    <!-- Số ngày -->
+    <label>Số ngày:</label>
+    <div class="qty-controls">
+      <button onclick="changeDay(-1)">-</button>
+      <span id="dayQty">1</span>
+      <button onclick="changeDay(1)">+</button>
+    </div>
+
+    <!-- Tick Khác -->
+    <div>
+      <label>
+        <input type="checkbox" id="otherToggle"> Khác giá(không khác rate)
+      </label>
+    </div>
+
+    <!-- Mã sản phẩm mặc định -->
     <label>Mã sản phẩm:</label>
     <input type="text" id="codeInput" placeholder="VD: PR33003BVD12">
 
     <label>Giá RM (VND):</label>
     <input type="text" id="rmInput" placeholder="VD: 2784000">
+
+    <!-- Khối hiển thị thêm khi tick Khác -->
+    <div id="extraInputs" class="extra-inputs" style="display:none"></div>
 
     <label>Số lượng SC:</label>
     <div class="qty-controls">

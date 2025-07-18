@@ -37,6 +37,14 @@ label {
   font-weight: bold;
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  transform: scale(1.5);  /* Phóng to */
+  cursor: pointer;
+  margin-right: 8px;
+}
+
 input[type="text"] {
   width: 100%;
   padding: 10px;
