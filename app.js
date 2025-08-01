@@ -157,21 +157,29 @@ function generateResult() {
     rmTotal += price * eba * dayQty;
   }
 
+  let extraNote = '';
+
   if (code.includes("PR33003")) {
-    result += ` + PR33003: Tặng Aquafiled HOẶC SHOW BÁCH NGHỆ - HẠNG VÉ NGÀY MÙA cho tất cả các khách
-Ưu đãi tặng kèm AQF / Show bách nghệ, QLDT đã add sẵn pkg AQF trong Rate code. Nếu khách hàng có như cầu chọn ưu đãi Show Bách Nghệ, Vé Ngày mùa, FO Team giúp gỡ pkg AQF + add pkg Show bách nghệ`;
-  } else if (code.includes("PR33004")) {
-    result += ` + PR33004: Miễn phí 02 trẻ em dưới 12 tuổi gói BB (không EB)`;
+    extraNote += `PR33003: Tặng Aquafiled HOẶC SHOW BÁCH NGHỆ - HẠNG VÉ NGÀY MÙA cho tất cả các khách\n`;
+    extraNote += `Ưu đãi tặng kèm AQF / Show bách nghệ, QLDT đã add sẵn pkg AQF trong Rate code. Nếu khách hàng có như cầu chọn ưu đãi Show Bách Nghệ, Vé Ngày mùa, FO Team giúp gỡ pkg AQF + add pkg Show bách nghệ\n`;
   }
 
-  if (code.includes("BA")) {
-    result += ` + Với khách đặt gói BV/BB: Tặng vé Ngày Mùa => FO vui lòng gán package BN-NGAYMUA-IN vào ngày khách sử dụng dịch vụ (áp dụng khuyến mãi  tặng vé đến hết 29/7/2025)`;
+  if (code.includes("PR33004")) {
+    extraNote += ` PR33004: Miễn phí 02 trẻ em dưới 12 tuổi gói BB (không EB)`;
   }
+
+  // if (code.includes("BA")) {
+  //   extraNote += ` Với khách đặt gói BV/BB: Tặng vé Ngày Mùa => FO vui lòng gán package BN-NGAYMUA-IN vào ngày khách sử dụng dịch vụ (áp dụng khuyến mãi  tặng vé đến hết 29/7/2025)`;
+  // }
 
   if (hasDO) {
     result += ` to TA after C/o\nXtra to POA`;
   } else {
     result += ` to TA b4 C/I\nXtra to POA`;
+  }
+
+  if (extraNote) {
+    result += `\n${extraNote.trim()}`;
   }
 
   result += `\n\nTotal: ${formatVND(rmTotal)} VND`;
@@ -210,8 +218,8 @@ function getEBAPrice(code, hasDO) {
     if (code.includes("BV") && code.includes("BA")) return "1,928,000 VND NL/N";
     if (code.includes("BB")) return "1,248,000 VND NL/N";
   } else {
-    if (code.includes("BV") && code.includes("PR")) return " VND NL/N";
-    if (code.includes("BV") && code.includes("BA")) return " VND NL/N";
+    if (code.includes("BV") && code.includes("PR")) return "1,853,700 VND NL/N";
+    if (code.includes("BV") && code.includes("BA")) return "2,012,350 VND NL/N";
     if (code.includes("BB")) return "1,302,600 VND NL/N";
   }
   return "EBA ???";
@@ -236,9 +244,10 @@ function getEBAPriceRaw(code, hasDO) {
     if (code.includes("BV") && code.includes("BA")) return 1928000;
     if (code.includes("BB")) return 1248000;
   } else {
-    if (code.includes("BV") && code.includes("PR")) return 0;
-    if (code.includes("BV") && code.includes("BA")) return 0;
+    if (code.includes("BV") && code.includes("PR")) return 1853700;
+    if (code.includes("BV") && code.includes("BA")) return 2012350;
     if (code.includes("BB")) return 1302600;
   }
   return 0;
+  
 }
