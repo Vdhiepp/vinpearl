@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <a href="index.html">
+        <button type="button"> Back </button>
+      </a>
+    </div>
+    <h2>Danh mục</h2>
+    <ul>
+      <li onclick="loadContent('noibo.html')">Nội bộ</li>
+      <li onclick="loadContent('tongdai.html')">Tổng đài</li>
+      <li onclick="loadContent('mail.html')">Mail</li>
+      <li onclick="loadContent('nga.html')">Nga</li>
+      <li onclick="loadContent('note.html')">Note</li>
+    </ul>
+  </div>
+
+  <div class="content" id="mainContent">
+    <h1>Chào mừng</h1>
+  </div>
+
+  <script src="doc.js"></script>
+</body>
+</html>
