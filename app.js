@@ -118,7 +118,7 @@ function generateResult() {
     resultLines.forEach(l => {
       finalText += `DEM : ${l}\n`;
     });
-    finalText += `Xtra to POA\nVới khách đặt gói BV/BB: Tặng vé Ngày Mùa => FO vui lòng gán package BN-NGAYMUA-IN vào ngày khách sử dụng dịch vụ (áp dụng khuyến mãi  tặng vé đến hết 29/7/2025)\n`;
+    //finalText += `Xtra to POA\nVới khách đặt gói BV/BB: Tặng vé Ngày Mùa => FO vui lòng gán package BN-NGAYMUA-IN vào ngày khách sử dụng dịch vụ (áp dụng khuyến mãi  tặng vé đến hết 29/7/2025)\n`;
     finalText += `Total: ${formatVND(totalAll)} VND`;
     document.getElementById("result").innerText = finalText;
     return;
@@ -144,6 +144,8 @@ function generateResult() {
     result += ` + BV`;
   } else if (code.includes("BB")) {
     result += ` + BB`;
+  } else if (code.includes("RO")) {
+    result += ` + RO`;
   }
 
   if (sc > 0) {
@@ -160,12 +162,12 @@ function generateResult() {
   let extraNote = '';
 
   if (code.includes("PR33003")) {
-    extraNote += `PR33003: Tặng Aquafiled HOẶC SHOW BÁCH NGHỆ - HẠNG VÉ NGÀY MÙA cho tất cả các khách\n`;
-    extraNote += `Ưu đãi tặng kèm AQF / Show bách nghệ, QLDT đã add sẵn pkg AQF trong Rate code. Nếu khách hàng có như cầu chọn ưu đãi Show Bách Nghệ, Vé Ngày mùa, FO Team giúp gỡ pkg AQF + add pkg Show bách nghệ\n`;
+    extraNote += ` PR33003: THU SO COOL + Tặng 01 lần trải nghiệm Aquafield cho toàn bộ khách/phòng GỒM CÁP TREO 02 chiều\n`;
+    //extraNote += `Ưu đãi tặng kèm AQF / Show bách nghệ, QLDT đã add sẵn pkg AQF trong Rate code. Nếu khách hàng có như cầu chọn ưu đãi Show Bách Nghệ, Vé Ngày mùa, FO Team giúp gỡ pkg AQF + add pkg Show bách nghệ\n`;
   }
 
   if (code.includes("PR33004")) {
-    extraNote += ` PR33004: Miễn phí 02 trẻ em dưới 12 tuổi gói BB (không EB)`;
+    extraNote += ` PR33004 (KHÔNG EB): THU SO COOL + FOC 2 KIDS FOR BB PACKAGE -Miễn phí 2 trẻ em dưới 12 tuổi gói BB`;
   }
 
   // if (code.includes("BA")) {
@@ -204,6 +206,7 @@ function getSCPrice(code, hasDO) {
     if (code.includes("BV") && code.includes("PR")) return "904,000 VND TE/N";
     if (code.includes("BV") && code.includes("BA")) return "1,056,000 VND TE/N";
     if (code.includes("BB")) return "376,000 VND TE/N";
+    if (code.includes("RO") && code.includes("BA")) return "272,000 VND TE/N";
   } else {
     if (code.includes("BV") && code.includes("PR")) return "943,550 VND TE/N";
     if (code.includes("BV") && code.includes("BA")) return "1,102,200 VND TE/N";
@@ -217,6 +220,7 @@ function getEBAPrice(code, hasDO) {
     if (code.includes("BV") && code.includes("PR")) return "1,776,000 VND NL/N";
     if (code.includes("BV") && code.includes("BA")) return "1,928,000 VND NL/N";
     if (code.includes("BB")) return "1,248,000 VND NL/N";
+    if (code.includes("RO") && code.includes("BA")) return "1,144,000 VND NL/N";
   } else {
     if (code.includes("BV") && code.includes("PR")) return "1,853,700 VND NL/N";
     if (code.includes("BV") && code.includes("BA")) return "2,012,350 VND NL/N";
@@ -230,6 +234,7 @@ function getSCPriceRaw(code, hasDO) {
     if (code.includes("BV") && code.includes("PR")) return 904000;
     if (code.includes("BV") && code.includes("BA")) return 1056000;
     if (code.includes("BB")) return 376000;
+    if (code.includes("RO") && code.includes("BA")) return 272000;
   } else {
     if (code.includes("BV") && code.includes("PR")) return 943550;
     if (code.includes("BV") && code.includes("BA")) return 1102200;
@@ -243,6 +248,7 @@ function getEBAPriceRaw(code, hasDO) {
     if (code.includes("BV") && code.includes("PR")) return 1776000;
     if (code.includes("BV") && code.includes("BA")) return 1928000;
     if (code.includes("BB")) return 1248000;
+    if (code.includes("RO") && code.includes("BA")) return 1144000;
   } else {
     if (code.includes("BV") && code.includes("PR")) return 1853700;
     if (code.includes("BV") && code.includes("BA")) return 2012350;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Room Calculator</title>
+  <link rel="stylesheet" href="/test/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Room Calculator</h2>
+
+    <!-- Số phòng -->
+    <div class="form-group">
+      <label>Số phòng:</label>
+      <input type="number" id="rooms" value="1" min="1">
+    </div>
+
+    <!-- Số ngày -->
+    <div class="form-group">
+      <label>Số ngày:</label>
+      <input type="number" id="days" value="1" min="1">
+    </div>
+
+    <!-- Khu vực sinh input cho từng ngày -->
+    <div id="dayInputs"></div>
+
+    <!-- SC -->
+    <div class="form-group">
+      <label>SC:</label>
+      <input type="number" id="sc" value="0" min="0">
+    </div>
+
+    <!-- EBA -->
+    <div class="form-group">
+      <label>EBA:</label>
+      <input type="number" id="eba" value="0" min="0">
+    </div>
+
+    <!-- Phụ thu người lớn -->
+    <div class="form-group">
+      <label>Phụ thu người lớn:</label>
+      <input type="number" id="extraAdult" value="0" min="0">
+    </div>
+
+    <!-- Button -->
+    <button id="btnResult">Result</button>
+
+    <!-- Output -->
+    <h3>Kết quả</h3>
+    <textarea id="result" readonly></textarea>
+  </div>
+
+  <script src="/test/app.js"></script>
+</body>
+</html>
