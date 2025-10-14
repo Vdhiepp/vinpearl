@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;       /* 🔹 Giới hạn tối đa */
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  padding-left: 5px;
+}
+
+.promo {
+  color: green;
+  font-weight: bold;
+}
+
+.no-promo {
+  color: #555;
+}
+
+.extra {
+  background: #eef6ff;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-style: italic;
+  color: #004080;
+}
+
+.extra {
+  background: #eef6ff;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-style: italic;
+  color: #004080;
+  white-space: pre-line; /* ⬅️ Giữ xuống dòng trong nội dung */
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra TA NGA</title>
+  <link rel="stylesheet" href="taNga.css">
+</head>
+<body>
+    <div class="btn-wrap">
+      <a href="index.html">
+        <button type="button">Back</button>
+      </a>
+    </div>
+  <div class="container">
+    <h2>TA NGA</h2>
+
+    <label for="start">Ngày check in:</label>
+    <input id="start" type="text">
+
+    <label for="end">Ngày check out:</label>
+    <input id="end" type="text">
+
+    <label for="option">Đại lý:</label>
+    <select id="option">
+      <option value="">-- Chọn một lựa chọn --</option>
+      <option value="1">Anex</option>
+      <option value="2">Pegas</option>
+      <option value="3">AB Tour</option>
+      <option value="4">Amega</option>
+      <option value="5">Fun & Sun</option>
+      <option value="6">Odeon</option>
+      <option value="7">Green Travel</option>
+      <option value="8">Viet One</option>
+      <option value="9">Crystal Tourism</option>
+      <option value="10">Rustar</option>
+      <option value="11">Prestige</option>
+      <option value="12">Selfie Travel</option>
+      <option value="13">Concierge Travel</option>
+    </select>
+
+    <button onclick="checkPromo()">Kiểm tra</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="taNga.js"></script>
+</body>
+</html>
