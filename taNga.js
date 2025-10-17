@@ -124,7 +124,7 @@ function checkPromo() {
 
   // Duyệt từ ngày check-in đến NGÀY TRƯỚC check-out
   let current = new Date(startDate);
-  while (current < endDate) {  // 🔹 chỉ nhỏ hơn, không bằng
+  while (current < endDate) {
     const formatted = formatDate(current);
 
     // Kiểm tra giai đoạn khuyến mãi
@@ -135,24 +135,42 @@ function checkPromo() {
     if (promo) {
       output += `<div class="promo">${formatted}: ${promo.name}</div>`;
     } else {
-      output += `<div class="no-promo">${formatted}: PR22100BB</div>`;
+      output += `<div class="no-promo">${formatted}: PR22100BB </div>`;
     }
 
     nightCount++;
     current.setDate(current.getDate() + 1);
   }
 
-  // Hiển thị mô tả lựa chọn
+  // ====== 🔸 TÍNH TỔNG SỐ ĐÊM 🔸 ======
+  const nightText = nightCount < 10 ? `0${nightCount}` : nightCount;
+  output += `<div style="margin-top:10px;font-weight:bold;color:#007bff">Tổng: ${nightText} đêm</div>`;
+
+  // ====== 🔸 HIỂN THỊ MÔ TẢ LỰA CHỌN 🔸 ======
   if (extraMessages[option]) {
     output += `<div class="extra">${extraMessages[option]}</div>`;
   }
 
-  // Hiển thị tổng số đêm
-  const nightText = nightCount < 10 ? `0${nightCount}` : nightCount;
-  output += `<div style="margin-top:10px;font-weight:bold;color:#007bff">Tổng: ${nightText} đêm</div>`;
+  // ====== 🔸 TẶNG QUÀ THEO NGÀY VÀ LỰA CHỌN 🔸 ======
+  const promoDate = new Date(2025, 11, 1); // 1-12-2025 (tháng 11 vì JS đếm từ 0)
+  let giftText = "";
+
+  if (startDate < promoDate) {
+    if (option == "1" || option == "2" || option == "3" || option == "4" || option == "7" ) giftText = "PR22100BB: + 01 SC(300,000 VND/P/D) + 01 UGEBC(202,500 VND/P/D)";
+    else if (option == "5" || option == "6") giftText = "PR22001BB: + 01 SC(312,000 VND/P/D) + 01 UGEBC(195,000 VND/P/D)";
+    else if (option == "8") giftText = "PR22105BB: + 01 SC(320,000 VND/TE/D)+ 01 UGEBC(216,000 VND/P/D)<br><br>I1BBOSD05: + 01 SC(380,000 VND/TE/D)+ 01 UGEBC(256,500 VND/P/D)";
+  } else {
+    if (option == "1" || option == "2" || option == "3" || option == "4") giftText = "PR22100BB: + 01 SC(315,000 VND/P/D) + 01 UGEBC(210,000 VND/P/D)<br> + 01 EBA(1,035,000 VND/P/D)<br><br>I1BBOD: + 01 SC(378,000 VND/P/D) + 01 UGEBC(252,000 VND/P/D)<br> + 01 EBA(1,242,000 VND/P/D)";
+    else if (option == "7") giftText = "PR22100BB: + 01 SC(315,000 VND/P/D) + 01 UGEBC(210,000 VND/P/D)<br> + 01 EBA(1,035,000 VND/P/D)<br><br>I1BBOD: + 01 SC(420,000 VND/P/D) + 01 UGEBC(280,000 VND/P/D)<br> + 01 EBA(1,380,000 VND/P/D)";
+    else if (option == "8") giftText = "PR22105BB: + 01 SC(326,000 VND/P/D) + 01 UGEBC(224,000 VND/P/D)<br> + 01 EBA(1,104,000 VND/P/D)<br><br>I1BBOSLH: + 01 SC(420,000 VND/P/D) + 01 UGEBC(280,000 VND/P/D)<br> + 01 EBA(1,380,000 VND/P/D)";
+  }
+
+  if (giftText) {
+    output += `<div style="margin-top:12px;padding:8px;background:#fff8dc;border-left:4px solid #ff9800;border-radius:6px">
+      <strong>${giftText}</strong>
+    </div>`;
+  }
 
   result.innerHTML = output;
-
-  // Cuộn xuống kết quả
   result.scrollIntoView({ behavior: "smooth" });
 }
