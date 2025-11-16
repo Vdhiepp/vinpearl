@@ -105,3 +105,88 @@ textarea .highlight {
 .hidden {
   display: none;
 }
+
+/* Ô lưu ý cố định bên phải màn hình */
+.note-box {
+  position: fixed;       /* cố định màn hình */
+  top: 50px;             /* cách trên 50px */
+  right: 20px;           /* cách phải 20px */
+  width: 250px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-size: 14px;
+  z-index: 9999;
+}
+
+.note-box h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #dc3545;
+}
+
+.note-box button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.note-box button:hover {
+  background-color: #c82333;
+}
+
+.note-box-left {
+  position: fixed;       /* cố định màn hình */
+  top: 50px;             /* cách trên 50px */
+  left: 20px;           /* cách phải 20px */
+  width: 250px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-size: 14px;
+  z-index: 9999;
+}
+
+.note-box-left h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #28a745;
+}
+
+.preset-prices {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.preset-prices button {
+  padding: 6px 12px;
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.preset-prices button:hover {
+  background-color: #138496;
+}
+
+mark {
+  background-color: yellow;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
