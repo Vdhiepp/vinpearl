@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>TA VN</title>
+    <link rel="icon" type="image/png" href="/image/logo.jpg">
+    <link rel="stylesheet" href="taVN.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="card">
+        <h2>TA VN</h2>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>RateCode</label>
+                <input type="text" id="rateCode" placeholder="BABBBDO">
+            </div>
+
+            <div class="form-group">
+                <label>Giá phòng</label>
+                <input type="text" id="roomPrice" placeholder="1,750,000">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="option">
+                <button id="btnSC">SC</button>
+                <input type="text" id="scPrice" class="hidden" placeholder="Giá SC">
+            </div>
+
+            <div class="option">
+                <button id="btnEBA">EBA</button>
+                <input type="text" id="ebaPrice" class="hidden" placeholder="Giá EBA">
+            </div>
+        </div>
+
+        <div class="form-row center">
+            <button class="btn-result" onclick="calculate()">Kết quả</button>
+        </div>
+
+        <div class="result-box">
+            <pre id="output"></pre>
+        </div>
+    </div>
+</div>
+
+<script src="taVN.js"></script>
+</body>
+</html>
